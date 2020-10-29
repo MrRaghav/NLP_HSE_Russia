@@ -39,7 +39,7 @@ Now you can start new container from this image with:
 
     docker run -it -p 8080:8080 --name coursera-aml-nlp akashin/coursera-aml-nlp
 
-This will start the Ubuntu instance and give you an access to its command line. You can type run_notebook to launch IPython notebook server.
+This will start the Ubuntu instance and give you an access to its command line. You can type `<run_notebook>` to launch IPython notebook server.
 
 You may find it useful to mount a directory from your local machine within the container using -v option.
 
