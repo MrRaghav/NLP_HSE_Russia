@@ -1,9 +1,11 @@
 Tutorial for setting up an AWS Virtual Machine
 -------------------------------------------------
+-------------------------------------------------
 
 This tutorial will teach you how to set up an AWS Virtual Machine for the final project of our course.
 
-<h4> 1. Register with AWS and launch an EC2 instance <\h4>
+1. Register with AWS and launch an EC2 instance
+------------------------------------------------------
 
 First, you need to perform several preparatory steps (if you have already done this before, you can skip them):
 
@@ -20,7 +22,8 @@ Next, you are ready to create your first EC2 instance:
 <li> Later on you can [start and stop](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) your instance when needed, and [terminate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) it in the end.</li>
 </ul>
 
-<h4> 2. Set up dependencies and run your project <\h4>
+2. Set up dependencies and run your project
+------------------------------------------------
 
 <ul>
 <li> Install Docker container for Ubuntu with course dependencies. Follow our Docker instructions.</li>
