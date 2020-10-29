@@ -3,7 +3,7 @@ Tutorial for setting up an AWS Virtual Machine
 
 This tutorial will teach you how to set up an AWS Virtual Machine for the final project of our course.
 
-<h4>1. Register with AWS and launch an EC2 instance<\h4>
+<h4> 1. Register with AWS and launch an EC2 instance <\h4>
 
 First, you need to perform several preparatory steps (if you have already done this before, you can skip them):
 
@@ -15,16 +15,16 @@ First, you need to perform several preparatory steps (if you have already done t
 Next, you are ready to create your first EC2 instance:
 
 <ul>
-<li>[Launch a free tier instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance). For Amazon Machine Image (AMI) choose Ubuntu Server 16.04 LTS.</li>
-<li>[Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux) using SSH.</li>
-<li>Later on you can [start and stop](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) your instance when needed, and [terminate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) it in the end.</li>
+<li> [Launch a free tier instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance) .For Amazon Machine Image (AMI) choose Ubuntu Server 16.04 LTS.</li>
+<li> [Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance-linux) using SSH.</li>
+<li> Later on you can [start and stop](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html) your instance when needed, and [terminate](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-clean-up-your-instance) it in the end.</li>
 </ul>
 
-<h4>2. Set up dependencies and run your project<\h4>
+<h4> 2. Set up dependencies and run your project <\h4>
 
 <ul>
-<li>Install Docker container for Ubuntu with course dependencies. Follow our Docker instructions.</li>
-<li>To be able to access IPython notebooks running on AWS, you might want to SSH with port tunneling:</li>
+<li> Install Docker container for Ubuntu with course dependencies. Follow our Docker instructions.</li>
+<li> To be able to access IPython notebooks running on AWS, you might want to SSH with port tunneling:</li>
 </ul>
 
     ssh -L 8080:localhost:8080 -i path/to/private_key ubuntu@ec2-XX-XXX-X-XX.us-east-2.compute.amazonaws.com
@@ -32,14 +32,15 @@ Next, you are ready to create your first EC2 instance:
 Then you will be able to see the notebooks on localhost:8080 from your browser on the local machine.
 
 <ul>
-<li>Bring code and data to AWS instance, e.g.</li>
+<li> Bring code and data to AWS instance, e.g.</li>
 </ul>
+
     scp -i path/to/your_key.pem path/to/local_file ubuntu@ec2-XX-XXX-X-XX.us-east-2.compute.amazonaws.com:path/to/remote_file
 
 You might need to install [WinSCP](https://winscp.net/eng/docs/lang:ru) for data transfer if you are using Windows.
 
 <ul>
-<li>It is also a good practice to use [tmux](https://medium.com/@peterxjang/a-minimalist-guide-to-tmux-13675fb160fa) to keep your remote session running even if you disconnect from the machine, e.g. by closing your laptop.</li>
+<li> It is also a good practice to use [tmux](https://medium.com/@peterxjang/a-minimalist-guide-to-tmux-13675fb160fa) to keep your remote session running even if you disconnect from the machine, e.g. by closing your laptop.</li>
 </ul>
 
 Thus, to run your scipts on the machine, we suggest that you run: ssh -> tmux -> docker -> python.
