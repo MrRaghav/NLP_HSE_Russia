@@ -143,8 +143,10 @@ If you try to open "http://localhost:8080" or "http://127.0.0.1:8080" in your br
 * If you're using Docker Toolbox on Windows, try accessing "http://192.168.99.100:8080" instead. If this doesn't work, follow the instructions on [official Docker docs](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) and on [Stackoverflow](https://stackoverflow.com/questions/42866013/docker-toolbox-localhost-not-working) .
 * Make sure that you're running container with `-p` flag as described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) and that the output of `docker ps` contains a message like this:
 
-`CONTAINER ID        IMAGE                      COMMAND             CREATED                  STATUS              PORTS               NAMES`
-`e5b7bcd85a1b        akashin/coursera-aml-nlp   "/bin/bash"         Less than a second ago   Up 2 seconds        8080/tcp            peaceful_lamarr`
+```
+CONTAINER ID        IMAGE                      COMMAND             CREATED                  STATUS              PORTS               NAMES
+e5b7bcd85a1b        akashin/coursera-aml-nlp   "/bin/bash"         Less than a second ago   Up 2 seconds        8080/tcp            peaceful_lamarr
+```
 
 If the part about `PORTS` differs, remove the current container following [instructions](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container) and start it again.
 
