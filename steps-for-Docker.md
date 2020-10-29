@@ -49,7 +49,7 @@ For Linux and OSX, the following command should work:
 
 This will use shell alias $PWD to mount current directory to the folder /root/coursera in the container. Alternatively, you can mount arbitrary directory by replacing $PWD with a custom path.
 
-For Windows, there are some extra steps involved, and the launch command looks like
+For Windows, there are some extra [steps](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) involved, and the launch command looks like
 
     docker run -it -p 8080:8080 --name coursera-aml-nlp --user root -v /c/Users/$YOUR_USERNAME:/root/coursera akashin/coursera-aml-nlp
 
@@ -153,30 +153,30 @@ Make sure that browser proxy settings don't interfere with accessing local web s
 **How do I load data into Docker container?**
 ---------------------------------------------
 
-To access the data in the container, we recommend to use -v flag described here to mount a local directory from your computer into the container filesystem. For more details read Docker documentation.
+To access the data in the container, we recommend to use -v flag described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) to mount a local directory from your computer into the container filesystem. For more details read [Docker documentation](https://docs.docker.com/storage/volumes/) .
 
-Alternatively, you can download data using Jupyter "Upload" button or wget command in the Bash shell of the container.
+Alternatively, you can download data using Jupyter "Upload" button or wget command in the [Bash shell](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container) of the container.
 
 **Can't run run_notebook or starspace command**
 
-Make sure that you're executing it in the context of the Docker container as described here.
+Make sure that you're executing it in the context of the Docker container as described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) .
 
 **"Name is already in use by container" when trying to run the container**
 
-This means that the container with this name is already created. You can connect to this container or remove it by following instructions.
+This means that the container with this name is already created. You can connect to this container or remove it by following [instructions](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container).
 
 **StarSpace/Jupyter notebook crashes in Docker**
 
-This usually happens due to low default 2GB memory limit on Windows and OSX. Follow this instructions to fix this.
+This usually happens due to low default 2GB memory limit on Windows and OSX. Follow this [instructions](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#change-ram-limits-of-the-container) to fix this.
 
 **"This computer doesn't have VT-X/AMD-v enabled", when trying to run the container**
 
-This usually happens if you're using Docker Toolbox that needs Virtual Box support - hence the need for the hardware virtualization that can be enabled in BIOS. Try to turn on the VT-X support in BIOS as described in Microsoft documentation or on GitHub.
+This usually happens if you're using Docker Toolbox that needs Virtual Box support - hence the need for the hardware virtualization that can be enabled in BIOS. Try to turn on the VT-X support in BIOS as described in [Microsoft documentation](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) or on [GitHub](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) .
 
 **Reporting the issue to the Coursera forum**
 ---------------------------------------------
 
-Before reporting the issue to the Coursera forum, please, make sure that you've checked the troubleshooting steps. Only if they don't help, post all relevant error messages, throubleshooting results, and the following information to your post:
+Before reporting the issue to the Coursera forum, please, make sure that you've checked the [troubleshooting](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#troubleshooting) steps. Only if they don't help, post all relevant error messages, throubleshooting results, and the following information to your post:
 
 * Your operating system (e.g. Windows 7, Ubuntu Linux, OSX 10.13.3)
 * Your docker version (e.g. Docker Toolbox, Docker for Windows, output of docker --version)
