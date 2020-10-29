@@ -39,21 +39,21 @@ Now you can start new container from this image with:
 
     docker run -it -p 8080:8080 --name coursera-aml-nlp akashin/coursera-aml-nlp
 
-This will start the Ubuntu instance and give you an access to its command line. You can type `<run_notebook>` to launch IPython notebook server.
+This will start the Ubuntu instance and give you an access to its command line. You can type `run_notebook` to launch IPython notebook server.
 
-You may find it useful to mount a directory from your local machine within the container using -v option.
+You may find it useful to mount a directory from your local machine within the container using `-v` option.
 
 For Linux and OSX, the following command should work:
 
     docker run -it -p 8080:8080 --name coursera-aml-nlp -v $PWD:/root/coursera akashin/coursera-aml-nlp
 
-This will use shell alias $PWD to mount current directory to the folder /root/coursera in the container. Alternatively, you can mount arbitrary directory by replacing $PWD with a custom path.
+This will use shell alias `$PWD` to mount current directory to the folder `/root/coursera` in the container. Alternatively, you can mount arbitrary directory by replacing `$PWD` with a custom path.
 
 For Windows, there are some extra [steps](https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c) involved, and the launch command looks like
 
     docker run -it -p 8080:8080 --name coursera-aml-nlp --user root -v /c/Users/$YOUR_USERNAME:/root/coursera akashin/coursera-aml-nlp
 
-Where /c/Users/$YOUR_USERNAME is the path to your user's home folder.
+Where `/c/Users/$YOUR_USERNAME` is the path to your user's home folder.
 
 If you're using Docker Toolbox on Windows, the command given above might not work because of the additional VirtualBox layer involved. Instead, we recommend you to follow the guidance in http://blog.shahinrostami.com/2017/11/docker-toolbox-windows-7-shared-volumes/.
 
@@ -83,17 +83,17 @@ To show currently running and stopped containers with their status:
 
     docker ps -a
 	
-To connect to a Bash shell in the already running container with name coursera-aml-nlp run:
+To connect to a Bash shell in the already running container with name `coursera-aml-nlp` run:
 
     docker exec -it coursera-aml-nlp bash
 	
-This will drop you into the standard Linux Bash shell that supports common commands like ls, wget or python3.
+This will drop you into the standard Linux Bash shell that supports common commands like `ls`, `wget` or `python3`.
 
 To remove the container and all data associated with it:
 
     docker rm coursera-aml-nlp
 	
-Note, that this will remove all the internal data of the container (e.g. installed packages), but all the data written inside of your local mounted folder (-v option) will not be affected.
+Note, that this will remove all the internal data of the container (e.g. installed packages), but all the data written inside of your local mounted folder ( `-v` option) will not be affected.
 
 **Install more packages**
 -------------------------
@@ -127,37 +127,37 @@ If you are interested to know more about Docker, check out this articles:
 
 **Verify your Docker installation by running "Hello World" application**
 
-* Run docker pull hello-world. You should see a message that ends with “Status: Downloaded newer image for hello-world:latest”.
-* Run docker run hello-world. You should see a message that starts with “Hello from Docker! This message shows that your installation appears to be working correctly.”
+* Run `docker pull hello-world`. You should see a message that ends with “Status: Downloaded newer image for hello-world:latest”.
+* Run `docker run hello-world`. You should see a message that starts with “Hello from Docker! This message shows that your installation appears to be working correctly.”
 
 If you see any errors, follow relevant troubleshooting steps.
 
 **“Unauthorized: authentication required” when trying to pull Docker image**
 
-Run docker logout and try pulling again. If this doesn't help, make sure the system date is set correctly and try again. If this doesn't help, reinstall Docker and try again.
+Run `docker logout` and try pulling again. If this doesn't help, make sure the system date is set correctly and try again. If this doesn't help, reinstall Docker and try again.
 
 **Can't open Jupyter notebook in the browser**
 
-If you try to open "http://localhost:8080" or "http://127.0.0.1:8080" in your browser, when run_notebook command is started, and you can't access your notebooks, here are some advices:
+If you try to open "http://localhost:8080" or "http://127.0.0.1:8080" in your browser, when `run_notebook` command is started, and you can't access your notebooks, here are some advices:
 
-* If you're using Docker Toolbox on Windows, try accessing "http://192.168.99.100:8080" instead. If this doesn't work, follow the instructions on official Docker docs and on Stackoverflow.
-* Make sure that you're running container with -p flag as described here and that the output of docker ps contains a message like this:
+* If you're using Docker Toolbox on Windows, try accessing "http://192.168.99.100:8080" instead. If this doesn't work, follow the instructions on [official Docker docs](https://docs.docker.com/docker-for-windows/troubleshoot/#limitations-of-windows-containers-for-localhost-and-published-ports) and on [Stackoverflow](https://stackoverflow.com/questions/42866013/docker-toolbox-localhost-not-working) .
+* Make sure that you're running container with `-p` flag as described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) and that the output of `docker ps` contains a message like this:
 
     CONTAINER ID        IMAGE                      COMMAND             CREATED                  STATUS              PORTS               NAMES
     e5b7bcd85a1b        akashin/coursera-aml-nlp   "/bin/bash"         Less than a second ago   Up 2 seconds        8080/tcp            peaceful_lamarr
 
-If the part about PORTS differs, remove the current container following instructions and start it again.
+If the part about `PORTS` differs, remove the current container following [instructions](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container) and start it again.
 
 Make sure that browser proxy settings don't interfere with accessing local web sites.
 
 **How do I load data into Docker container?**
 ---------------------------------------------
 
-To access the data in the container, we recommend to use -v flag described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) to mount a local directory from your computer into the container filesystem. For more details read [Docker documentation](https://docs.docker.com/storage/volumes/) .
+To access the data in the container, we recommend to use `-v` flag described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) to mount a local directory from your computer into the container filesystem. For more details read [Docker documentation](https://docs.docker.com/storage/volumes/) .
 
-Alternatively, you can download data using Jupyter "Upload" button or wget command in the [Bash shell](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container) of the container.
+Alternatively, you can download data using Jupyter "Upload" button or `wget` command in the [Bash shell](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#other-operations-on-the-container) of the container.
 
-**Can't run run_notebook or starspace command**
+**Can't run `run_notebook` or `starspace` command**
 
 Make sure that you're executing it in the context of the Docker container as described [here](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#run-container-for-the-first-time) .
 
@@ -171,7 +171,7 @@ This usually happens due to low default 2GB memory limit on Windows and OSX. Fol
 
 **"This computer doesn't have VT-X/AMD-v enabled", when trying to run the container**
 
-This usually happens if you're using Docker Toolbox that needs Virtual Box support - hence the need for the hardware virtualization that can be enabled in BIOS. Try to turn on the VT-X support in BIOS as described in [Microsoft documentation](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) or on [GitHub](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) .
+This usually happens if you're using Docker Toolbox that needs Virtual Box support - hence the need for the hardware virtualization that can be enabled in BIOS. Try to turn on the VT-X support in BIOS as described in [Microsoft documentation](https://blogs.technet.microsoft.com/canitpro/2015/09/08/step-by-step-enabling-hyper-v-for-use-on-windows-10/) or on [GitHub](https://github.com/docker/machine/issues/4271) .
 
 **Reporting the issue to the Coursera forum**
 ---------------------------------------------
@@ -179,9 +179,9 @@ This usually happens if you're using Docker Toolbox that needs Virtual Box suppo
 Before reporting the issue to the Coursera forum, please, make sure that you've checked the [troubleshooting](https://github.com/MrRaghav/NLP_HSE_Russia/blob/main/steps-for-Docker.md#troubleshooting) steps. Only if they don't help, post all relevant error messages, throubleshooting results, and the following information to your post:
 
 * Your operating system (e.g. Windows 7, Ubuntu Linux, OSX 10.13.3)
-* Your docker version (e.g. Docker Toolbox, Docker for Windows, output of docker --version)
-* Output of docker ps -a, docker info, docker version -f "{{ .Server.Os }}" (share thorough https://gist.github.com/ or https://pastebin.com/)
-* Output of wget http://localhost:8080 (or wget http://192.168.99.100:8080 for Docker Toolbox), executed from within Docker container and outside of it
+* Your docker version (e.g. Docker Toolbox, Docker for Windows, output of `docker --version` )
+* Output of `docker ps -a` , `docker info` , `docker version -f "{{ .Server.Os }}" ` (share through https://gist.github.com/ or https://pastebin.com/)
+* Output of `wget http://localhost:8080` (or `wget http://192.168.99.100:8080` for Docker Toolbox), executed from within Docker container and outside of it
 
 **Credits**
 -----------
